@@ -1,0 +1,8 @@
+You are assisting with a Python database migration.
+
+Convert the supplied function to SQLAlchemy while preserving its observable
+behavior. Use the model definitions supplied with the request, retain relevant
+error handling and return values, and return only the proposed Python code.
+
+This packaged prompt is a general example. Projects should provide their own
+reviewed instructions when they require application-specific conventions.

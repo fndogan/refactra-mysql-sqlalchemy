@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=77.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refactra-mysql-sqlalchemy"
+version = "0.1.0"
+description = "Refactra toolkit for migrating raw MySQL data access to SQLAlchemy"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [
+    {name = "Furkan Dogan", email = "dev@fndogan.com"},
+]
+keywords = ["refactra", "sqlalchemy", "mysql", "migration", "orm", "codemod", "ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Code Generators",
+    "Typing :: Typed",
+]
+
+dependencies = [
+    "libcst>=1.1.0",
+    "sqlalchemy>=2.0.0",
+    "anthropic>=0.40.0,<2.0.0",
+    "rich>=13.0.0",
+    "tabulate>=0.9.0",
+    "python-dotenv>=1.0.0",
+    "pathspec>=0.12.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0.0,<4.0.0"]
+dev = [
+    "build>=1.2.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+refactra-mysql = "refactra_mysql.__main__:main"
+
+[project.urls]
+Repository = "https://github.com/fndogan/refactra-mysql-sqlalchemy"
+Issues = "https://github.com/fndogan/refactra-mysql-sqlalchemy/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["refactra_mysql*"]
+
+[tool.setuptools.package-data]
+refactra_mysql = ["converter/prompts/*.txt", "py.typed"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+warn_unused_configs = true

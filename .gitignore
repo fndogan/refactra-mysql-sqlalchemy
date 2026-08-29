@@ -1,0 +1,54 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Output, logs & reports (generated files)
+output/*
+!output/.gitkeep
+logs/*
+!logs/.gitkeep
+reports/*
+!reports/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+build-env-*/
+build-via-sdist-*/
+build-requirements-*.txt
+*.egg
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.tox/
+.nox/
+.coverage
+coverage.xml
+htmlcov/
+pip-*/
+pytest-of-root/
+/tmp*/
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+.agent/
+*.swp
+*.swo
+
+# Internal notes (not for repo)
+INTERNAL_*.md
+.private-prompts/
+src/refactra_mysql/converter/prompts/private/
+
+# OS
+.DS_Store
+Thumbs.db
